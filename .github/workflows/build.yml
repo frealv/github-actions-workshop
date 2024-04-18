@@ -4,8 +4,22 @@ on:
             - main
 
 jobs:
-  call-workflow-building-docker-image:
+  build:
     uses: ./.github/workflows/docker-build.yml
     with:
       should-push-image:
         true
+  deploy-test:
+    needs: build
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: test
+      imageName: ${{ needs.build.outputs.imageName }}
+      digest: ${{ needs.build.outputs.digest }}
+  deploy-production:
+    needs: deploy-test
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: production
+      imageName: ${{ needs.build.outputs.imageName }}
+      digest: ${{ needs.build.outputs.digest }}
