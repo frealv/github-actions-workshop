@@ -3,7 +3,7 @@ package greeting
 import "testing"
 
 func TestGreetOneName(t *testing.T) {
-	name := "Espen Askeladd"
+	name := "Pål Askeladd"
 	names := []string{name}
 	want := "Hello Espen Askeladd"
 
