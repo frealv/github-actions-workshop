@@ -1,9 +1,9 @@
 # The "display name", shown in the GitHub UI
-name: Build and test
+name: Test and lint
 
 # Trigger, run on push on any branch
 on:
-  push:
+  pull_request
 
 jobs:
   test: # The 'build' job
