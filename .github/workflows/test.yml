@@ -1,7 +1,6 @@
 # The "display name", shown in the GitHub UI
 name: Test and lint
 
-# Trigger, run on push on any branch
 on:
   pull_request
 
