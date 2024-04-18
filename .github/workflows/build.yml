@@ -5,7 +5,7 @@ on:
 
 jobs:
   call-workflow-building-docker-image:
-    uses: ./.github/workflows/docker-buil.yml
+    uses: ./.github/workflows/docker-build.yml
     with:
       should-push-image:
         true
