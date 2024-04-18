@@ -1,0 +1,20 @@
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                required: true
+                type: environment
+            imageName:
+                required: true
+                type: string
+            digest:
+                required: true
+                type: string
+
+jobs:
+    deployment:
+        runs-on: ubuntu-latest
+        environment: ${{ inputs.environment }}
+        steps:
+            - name: deploy
+              run: echo "Image name ${{inputs.imageName}}, digest ${{inputs.digest}}, env variable ${{ vars.WORKSHOP_ENV_VARIABLE }}"
